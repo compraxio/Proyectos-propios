@@ -1,0 +1,12 @@
+### File: `requirements.txt`
+
+Si prefieres un único archivo de requerimientos para todo el repositorio (por si te gusta tener todo en una sola canasta), aquí lo tienes:
+
+```txt
+# Requisitos para el Bot de Contaminación de Discord
+requests
+discord
+serpapi
+
+# Requisitos para el Traductor de Python
+translate
