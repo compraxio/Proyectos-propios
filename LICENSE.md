@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) [2025] [Luis Angel Acuña Cardenas]
+Copyright (c) 2025 Luis Angel Acuña Cardenas
 
 Por la presente se concede permiso, libre de cargos, a cualquier persona que obtenga una copia
 de este software y los archivos de documentación asociados (el "Software"), a utilizar
