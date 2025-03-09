@@ -1,5 +1,1 @@
 yt-dlp
-ffmpeg-python
-
-⚠ Nota importante:
---Asegúrate de que FFmpeg esté instalado en tu sistema y que la ruta proporcionada (ffmpeg_location) sea correcta. Si no lo tienes, descárgalo desde FFmpeg official site y agrégalo al PATH de tu sistema o ajusta la ruta en el código.--

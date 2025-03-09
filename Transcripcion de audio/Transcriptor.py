@@ -1,16 +1,27 @@
 import speech_recognition as sr
+import tkinter as tk
+from tkinter import filedialog
 
-# Lista con el nombre del o los archivos de audio a transcribir
-archivo = ["INGRESA EL NOMBRE DEL O DE LOS ARCHIVOS DE AUDIO QUE DESEAS TRANSCRIBIR"]
+# Inicializar la interfaz de tkinter
+root = tk.Tk()
+root.withdraw()  # Ocultar la ventana principal
+
+# Permitir al usuario seleccionar archivos de audio
+print("Selecciona los archivos de audio")
+archivo = filedialog.askopenfilenames(title="Selecciona los archivos de audio", filetypes=[("Audio Files", "*.wav")])
+
+# Permitir al usuario seleccionar el directorio de salida
+print("Selecciona el directorio de guardado")
+output_directory = filedialog.askdirectory(title="Selecciona el directorio de guardado")
 
 # Crear una instancia del reconocedor de voz
 r = sr.Recognizer()
 
 # Iterar sobre cada archivo de la lista
 for au in archivo:
-    output_file = f"{au}.txt"  # Nombre del archivo de salida para la transcripción
+    output_file = f"{output_directory}/{au.split('/')[-1]}.txt"  # Nombre del archivo de salida para la transcripción
     print(f"Procesando archivo {au}")
-    
+
     try:
         # Abrir el archivo de audio
         with sr.AudioFile(au) as source:
@@ -18,13 +29,13 @@ for au in archivo:
             duration = int(source.DURATION)
             # Variable para almacenar la transcripción completa
             full_text = ""
-            
+
             try:
                 estimacion_de_fragmentos = duration // 10
                 print(f"Procesando archivo... este durará {estimacion_de_fragmentos} fragmentos")
-            except:
+            except Exception:
                 print("No se pudo estimar la cantidad de fragmentos")
-            
+
             # Procesar el audio en fragmentos de 10 segundos
             for i in range(0, duration, 10):
                 try:
@@ -43,11 +54,11 @@ for au in archivo:
                     # Manejar errores de comunicación con el servicio de Google
                     print(f"Error al comunicarse con el servicio de Google: {e}")
                     break
-            
+
             # Guardar la transcripción completa en un archivo de texto
             with open(output_file, "w", encoding="utf-8") as f:
                 f.write(full_text)
-                
+
             print(f"Transcripción guardada y completada en {output_file}")
     except FileNotFoundError:
         # Manejar el caso en que el archivo de audio no se encuentre
