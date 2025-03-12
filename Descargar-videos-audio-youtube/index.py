@@ -1,7 +1,7 @@
 import yt_dlp
 import os
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 
 # * Función para asegurar que el directorio existe
 def asegurar_directorio(ruta):
@@ -35,6 +35,7 @@ def descargar_video(link, tipo="mp4"):
         print("Descarga completa")
     except Exception as e:
         print(f"Hubo un problema al descargar: {e}")
+    messagebox.showinfo("Descarga Completa", "La descarga ha finalizado.")
 
 # * Función para descargar solo el audio de un video
 def descargar_audio(link, tipo="mp3"):
@@ -59,6 +60,7 @@ def descargar_audio(link, tipo="mp3"):
         print("Descarga completa")
     except Exception as e:
         print(f"Hubo un problema al descargar: {e}")
+    messagebox.showinfo("Descarga Completa", "La descarga ha finalizado.")
 
 # * Función para descargar una lista de reproducción en formato de video
 def descargar_lista_reproduccion_para_video(link, tipo="mp4"):
@@ -83,6 +85,7 @@ def descargar_lista_reproduccion_para_video(link, tipo="mp4"):
         print("Descarga completa")
     except Exception as e:
         print(f"Hubo un problema al descargar: {e}")
+    messagebox.showinfo("Descarga Completa", "La descarga ha finalizado.")
 
 # * Función para descargar una lista de reproducción en formato de audio
 def descargar_lista_reproduccion_para_audio(link, tipo="mp3"):
@@ -107,6 +110,7 @@ def descargar_lista_reproduccion_para_audio(link, tipo="mp3"):
         print("Descarga completa")
     except Exception as e:
         print(f"Hubo un problema al descargar: {e}")
+    messagebox.showinfo("Descarga Completa", "La descarga ha finalizado.")
 
 # * Bucle principal para interactuar con el usuario
 while True:

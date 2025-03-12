@@ -1,6 +1,6 @@
 import speech_recognition as sr
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 
 # Inicializar la interfaz de tkinter
 root = tk.Tk()
@@ -69,3 +69,4 @@ for au in archivo:
     except Exception as e:
         # Manejar cualquier otro error inesperado
         print(f"Ocurrió un error inesperado: {e}")
+messagebox.showinfo("Transcripción completada", "La transcripción se ha completado.")
